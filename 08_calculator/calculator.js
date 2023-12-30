@@ -7,19 +7,16 @@ const subtract = function(a, b) {
 };
 
 const sum = function(list) {
-	let sum = 0;
-  for(const item of list) {
-    sum += item;
-  }
-  return sum;
+  return list.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+  }, 0);
 };
 
 const multiply = function(list) {
-  let product = 1;
-  for(const item of list) {
-    product *= item;
-  }
-  return product;
+
+  return list.reduce((accumulator, currentValue) => {
+    return accumulator * currentValue;
+  }, 1);
 };
 
 const power = function(a, b) {
