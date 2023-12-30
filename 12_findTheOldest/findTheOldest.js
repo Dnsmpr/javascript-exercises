@@ -1,16 +1,12 @@
 const findTheOldest = function(dict) {
-    let age = -1;
-    let oldestPerson = ""
-    for(const person of dict) {
-        let newAge = (person.yearOfDeath || 2023) - person.yearOfBirth;
-        if(newAge > age) {
-            age = newAge;
-            oldestPerson = person;
-        }
-    }
-    return oldestPerson;
-
+    return dict
+        .map(x => {
+            x["age"] = (x.yearOfDeath || 2023) - x.yearOfBirth;
+            return x;
+        })
+        .sort((a, b) => b.age - a.age)[0];
 };
+
 
 // Do not edit below this line
 module.exports = findTheOldest;
